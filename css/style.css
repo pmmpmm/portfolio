@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com');
 @import url('https://fonts.gstatic.com');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=Noto+Sans+KR:wght@300;400;500;700;900&family=Roboto:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&family=Roboto:wght@300;400;500;700;900&display=swap');
 
 @import url('setting.css');
 
+/* -------------------- element variable -------------------- */
 :root {
   /* color */
   --color-main: #2b2825;
@@ -22,13 +23,14 @@
 
   /* font-weight */
   --weight-black: 900;
+  --weight-exblod: 800;
   --weight-bold: 700;
   --weight-medium: 500;
   --weight-regular: 400;
   --weight-light: 300;
 }
 
-/* ---------- style-reset ---------- */
+/* -------------------- style-reset -------------------- */
 body {
   font-family: Roboto, 'Noto Sans KR', Apple SD Gothic Neo, AppleGothic, sans-serif;
 }
@@ -49,8 +51,13 @@ li {
   color: var(--color-main);
 }
 
-/* ---------- style ---------- */
-main.main {
+/* -------------------- style -------------------- */
+/* style variable */
+:root {
+  --header--height: 80px;
+}
+
+main.contents {
   max-width: 1260px;
   margin: auto;
   padding: 0 30px;
@@ -58,16 +65,21 @@ main.main {
 }
 header.header {
   width: 100%;
-  height: 80px;
+  height: var(--header--height);
   padding: 0 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   position: sticky;
   top: 0;
   left: 0;
-
-  background-color: pink;
+  z-index: 10001;
+}
+header.header.scroll {
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.1);
 }
 header.header .header--logo {
   /* width: ;
@@ -84,5 +96,69 @@ header.header .navbar__manu .navbar__manu__item {
   font-weight: var(--weight-medium);
   cursor: pointer;
 }
-header.header .navbar__manu .navbar__manu__item {
+
+/* content 공통 */
+.content {
+  width: 100%;
+}
+.content header.titAr .titAr--tit {
+  font-family: var(--font-Inter);
+  font-size: var(--font-Xlarge54);
+  font-weight: var(--weight-exblod);
+  line-height: 1.2;
+  letter-spacing: -1.5px;
+}
+.content header.titAr .titAr--txt {
+  margin-top: 8px;
+  font-size: var(--font-regular15);
+  font-weight: var(--weight-regular);
+  line-height: 1.5;
+}
+
+.content#home {
+  padding: 10% 0;
+  min-height: calc(100vh - var(--header--height));
+  position: relative;
+}
+.content#home .profile--img {
+  width: 85px;
+  height: 115px;
+}
+.content#home .profile--img .img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.content#home header.titAr {
+  margin-top: 60px;
+}
+.content#home header.titAr .titAr--tit {
+  font-size: 82px;
+  font-family: var(--font-Inter);
+  font-weight: var(--weight-exblod);
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+}
+.content#home header.titAr .titAr--txt {
+  margin-top: 30px;
+  font-size: 16px;
+  font-weight: var(--weight-regular);
+  line-height: 1.7;
+}
+
+.content#about .contWp {
+}
+
+.contact--me {
+  position: absolute;
+  bottom: 25px;
+  left: 0;
+}
+.contact--me .contact--btn {
+  padding: 6px 22px 6px 27px;
+  font-size: 14px;
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  line-height: 1.15;
+  background: url(../images/contact_arr.png) no-repeat bottom 0 right 0 / 100% auto;
 }

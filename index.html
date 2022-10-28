@@ -20,7 +20,7 @@
   <body>
     <div class="wrapper">
       <!-- header -->
-      <header class="header">
+      <header class="header scroll">
         <h1 class="header--logo">LOGO</h1>
         <nav class="navbar">
           <ul class="navbar__manu">
@@ -31,31 +31,26 @@
           </ul>
         </nav>
       </header>
-      <main class="main">
-        <section class="content home">
-          <div class="home--profileImg">
+      <main class="contents">
+        <section class="content" id="home">
+          <div class="profile--img">
             <img src="" onerror="this.src='images/default_img01.jpg'" alt="김경환 프로필 이미지" class="img" />
           </div>
-          <div class="home--titAr">
-            <h2 class="home--titAr--tit">Wellcome</h2>
-            <p class="home--titAr--txt">포트폴리오 홈페이지에 오신것을 환영합니다.</p>
-          </div>
-          <div class="contact--btnAr">
-            <button class="btn">contact me</button>
-          </div>
+          <header class="titAr">
+            <h2 class="titAr--tit">Welcome to<br />my portfolio webpage.</h2>
+            <p class="titAr--txt">스스로 문제를 찾고, 새롭게 정의하고, 도전적인 목표를 설정하여 주도적으로 일합니다.<br />누군가 걸어간 길이 아닌 새로운 길을 끊임없이 개척합니다.</p>
+          </header>
         </section>
         <!-- section -->
-        <section class="content about">
-          <header class="content--titAr">
-            <h2 class="content--titAr--tit">About me</h2>
-            <p class="content--titAr--txt">
-              꽃이 발휘하기 우리 피가 광야에서 부패뿐이다. 곧 그러므로 이상 인간의 봄바람이다. 보는 만물은 노래하며 석가는 그들을 그들은 실현에 칼이다. 위하여, 그들은 품었기 가는 모래뿐일 우리
-              노년에게서 있다. 이상의 되려니와, 찾아 품으며, 있으랴? 눈에 있음으로써 들어 투명하되 천고에 만물은 피다. 날카로우나 방황하여도, 역사를 광야에서 가치를 약동하다. 것이다.보라, 얼마나
-              방황하였으며, 것은 사막이다. 간에 그들은 무엇이 이것이다. 그들은 원대하고, 대고, 무엇을 황금시대를 하였으며, 수 끓는 칼이다. 유소년에게서 역사를 우리의 따뜻한 원질이 불러 그들의 것이다.
+        <section class="content" id="about">
+          <header class="titAr">
+            <h2 class="titAr--tit">About me</h2>
+            <p class="titAr--txt">
+              꽃이 발휘하기 우리 피가 광야에서 부패뿐이다. 곧 그러므로 이상 인간의 봄바람이다. 보는 만물은<br />석가는 그들을 그들은 실현에 칼이다. 위하여, 그들은 품었기 가는 모래뿐일 우리
             </p>
           </header>
-          <div class="contWp hori">
-            <div class="contWp--cont block">
+          <div class="contWp">
+            <div class="contWp--cont graph">
               <div class="block--img">
                 <img src="" onerror="this.src='images/default_img01.jpg'" alt="기술 아이콘" class="img" />
               </div>
@@ -91,7 +86,7 @@
           </div>
         </section>
         <!-- section -->
-        <section class="content skills">
+        <section class="content" id="skills">
           <header class="content--titAr">
             <h2 class="content--titAr--tit">Skills</h2>
             <h3 class="content--titAr--subTit">보유 기술 & 가능 툴</h3>
@@ -145,7 +140,7 @@
           </div>
         </section>
         <!-- section -->
-        <section class="content work">
+        <section class="content" id="work">
           <header class="content--titAr">
             <h2 class="content--titAr--tit">My work</h2>
             <h3 class="content--titAr--subTit">프로젝트</h3>
@@ -201,7 +196,7 @@
           </div>
         </section>
         <!-- section -->
-        <section class="content contact">
+        <section class="content" id="contact">
           <header class="content--titAr">
             <h2 class="content--titAr--tit">contact</h2>
             <p class="content--titAr--txt">
@@ -227,6 +222,11 @@
           </div>
         </section>
       </main>
+
+      <!--  -->
+      <div class="contact--me">
+        <button class="contact--btn">contact me</button>
+      </div>
     </div>
   </body>
 </html>
