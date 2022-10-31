@@ -1,0 +1,199 @@
+@media screen and (max-width: 767px) {
+  /* -------------------- style -------------------- */
+  :root {
+    /* font-size */
+    --font-Xlarge: calc(75% * 3.375); /* 54px*/
+    --font-large: calc(80% * 1.875); /* 30px*/
+    --font-medium: calc(86% * 1.125); /* 18px*/
+    --font-regular: calc(90% * 0.938); /* 15px*/
+    --font-small: calc(92% * 0.875); /* 14px*/
+    --font-micro: calc(95% * 0.75); /* 12px*/
+  }
+
+  /* style variable */
+  :root {
+    --header--height: 60px;
+  }
+
+  /* btn */
+  .btn {
+    font-size: calc(90% * 1);
+  }
+
+  /* list txt */
+  .txt--list + .txt--list {
+    margin-top: 18px;
+  }
+
+  /* grid list */
+  .gridAr {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 40px;
+  }
+
+  /* layout */
+  main.contents {
+    padding: 0 25px;
+  }
+
+  /* content 공통 */
+  .content .row {
+    display: block;
+  }
+  .content .row .col2 {
+    width: 100%;
+  }
+  .content .row .col2 + .col2 {
+    margin-top: 40px;
+  }
+
+  /* header */
+  header.header {
+    padding: 0 20px;
+  }
+  header.header .open--btn,
+  header.header .close--btn {
+    display: block;
+    width: 34px;
+    height: 34px;
+    /* border: 1px solid var(--color-primary);
+    border-radius: 4px; */
+    background: url('/images/menu_ic.png') no-repeat center / 100% auto;
+  }
+  header.header .navbar {
+    display: none;
+  }
+
+  /* footer */
+  footer.footer {
+    margin-top: 130px;
+    padding: 22px 0;
+  }
+
+  /* home */
+  .content#home header.titAr .profile--img {
+    width: calc(var(--logo-scale) * 0.65);
+  }
+  .content#home header.titAr .titAr--tit {
+    margin-top: 34px;
+    font-size: calc(var(--font-size) * 0.56);
+    letter-spacing: 0;
+  }
+  .content#home header.titAr .titAr--txt {
+    margin-top: 24px;
+    font-size: calc(var(--font-size) * 0.9);
+  }
+
+  /* about */
+  .content#about .contWp .graphAr {
+    display: block;
+    padding: 30px 0;
+  }
+  .content#about .graphAr .graph--block:not(.graph) {
+    display: block;
+    width: 65%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    text-align: center;
+    margin: auto;
+  }
+  .content#about .graphAr .graph--block .graph--block--tit {
+    display: inline-block;
+  }
+  .content#about .graphAr .graph--block .graph--block--txt {
+    padding: 0 0;
+  }
+  .content#about .graphAr .graph--block .graph--block--txt .txt {
+    display: inline-block;
+  }
+  .content#about .graphAr .graph--block .graph--block--txt .txt::after {
+    content: '/';
+    padding: 0 3px 0 6px;
+  }
+  .content#about .graphAr .graph--block .graph--block--txt .txt:last-child:after {
+    display: none;
+  }
+  .content#about .graphAr .graph--block .graph--block--tit + .graph--block--txt {
+    margin-top: 6px;
+  }
+  .content#about .graphAr .graph {
+    margin: 0 auto;
+  }
+
+  /* skills */
+  .content#skills .skills--list .skill + .skill {
+    margin-top: 20px;
+  }
+
+  /* contact */
+  .content#contact .contWp {
+    margin-top: 40px;
+  }
+  .content#contact .contactInfo {
+    margin-top: 60px;
+    margin-left: 0%;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  /* -------------------- style -------------------- */
+  :root {
+    /* font-size */
+    --font-Xlarge: calc(70% * 3.375); /* 54px*/
+    --font-large: calc(80% * 1.875); /* 30px*/
+    --font-medium: calc(86% * 1.125); /* 18px*/
+    --font-regular: calc(90% * 0.938); /* 15px*/
+    --font-small: calc(92% * 0.875); /* 14px*/
+    --font-micro: calc(95% * 0.75); /* 12px*/
+  }
+  br {
+    display: none;
+  }
+  /* tab */
+  .tabBtn {
+    gap: 0 8px;
+  }
+  .tab--btn {
+    padding: 0 20px;
+  }
+
+  /* layout */
+  main.contents {
+    padding: 0 20px;
+  }
+
+  /* list txt */
+  .txt--list {
+    padding: 0 0;
+  }
+  .txt--list + .txt--list {
+    margin-top: 16px;
+  }
+
+  /* grid list */
+  .gridAr {
+    row-gap: 20px;
+    column-gap: 12px;
+  }
+  .grid .grid--txtAr .grid--txtAr-info .weight {
+    height: auto;
+  }
+
+  /* cont title */
+  .cont--tit02 {
+    font-size: calc(var(--font-size) * 0.94);
+  }
+
+  /* home */
+  .content#home header.titAr .titAr--tit {
+    font-size: calc(var(--font-size) * 0.6);
+  }
+  .content#home header.titAr .titAr--txt {
+    font-size: calc(var(--font-size) * 0.88);
+  }
+
+  /* contact */
+  .content#contact .guideTx {
+    font-size: calc(var(--font-size) * 0.85);
+  }
+}

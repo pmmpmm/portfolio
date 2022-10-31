@@ -1,0 +1,93 @@
+@media screen and (max-width: 1023px) {
+  /* -------------------- element variable -------------------- */
+  :root {
+    /* font-size */
+    --font-Xlarge: calc(84% * 3.375); /* 54px*/
+    --font-large: calc(82% * 1.875); /* 30px*/
+    --font-medium: calc(86% * 1.125); /* 18px*/
+    --font-regular: calc(90% * 0.938); /* 15px*/
+    --font-small: calc(92% * 0.875); /* 14px*/
+    --font-micro: calc(95% * 0.75); /* 12px*/
+  }
+
+  /* -------------------- style -------------------- */
+  /* list txt */
+  .txt--list {
+    padding: 0 5px;
+  }
+  .txt--list .txt--list--thumb {
+    width: 58px;
+  }
+  .txt--list .txtBox {
+    padding-left: 5%;
+  }
+
+  /* layout */
+  .wrapper {
+    min-width: 100%;
+  }
+  main.contents {
+    max-width: 100%;
+    padding: 0 35px;
+  }
+
+  /* content 공통 */
+  .content + .content:not(#about) {
+    margin-top: 140px;
+  }
+  .content .row .col2 {
+    width: calc(50% - 25px);
+  }
+
+  /* home */
+  .content#home header.titAr .profile--img {
+    width: calc(var(--logo-scale) * 0.9);
+  }
+  .content#home header.titAr .titAr--tit {
+    margin-top: 50px;
+    font-size: calc(var(--font-size) * 0.8);
+  }
+  .content#home header.titAr .titAr--txt {
+    margin-top: 24px;
+    font-size: calc(var(--font-size) * 0.95);
+  }
+
+  /* about */
+  .content#about .graphAr .graph {
+    width: 220px;
+    height: 220px;
+    margin: 0 3.6% 0 4%;
+  }
+  .content#about .graphAr .graph--block .graph--block--tit {
+    padding-left: 40px;
+    background-size: 32px auto;
+  }
+
+  /* skills */
+  .content#about .graph .icon {
+    width: 40px;
+    height: 40px;
+  }
+  .content#about .graph .publishing .icon {
+    left: 12px;
+  }
+  .content#about .graph .design .icon {
+    right: 12px;
+  }
+  .content#skills .tools-list {
+    gap: 16px 10px;
+    flex-wrap: wrap;
+  }
+  .content#skills .tools-list .tool .tool--icon {
+    width: 54px;
+    height: 54px;
+  }
+  .content#skills .tools-list .tool .tool--name {
+    font-size: 12px;
+  }
+
+  /* contact */
+  .content#contact .guideTx {
+    font-size: calc(var(--font-size) * 0.9);
+  }
+}
