@@ -162,5 +162,5 @@ li {
   transition: all 300ms ease-in-out;
 } */
 body * {
-  transition: all 200ms ease-in-out;
+  /* transition: all 200ms ease-in-out; */
 }
