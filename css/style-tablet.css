@@ -7,7 +7,10 @@
     --font-medium: calc(86% * 1.125); /* 18px*/
     --font-regular: calc(90% * 0.938); /* 15px*/
     --font-small: calc(92% * 0.875); /* 14px*/
-    --font-micro: calc(95% * 0.75); /* 12px*/
+    --font-micro: calc(100% * 0.815); /* 13px*/
+
+    /* padding */
+    --padding-type01: 35px;
   }
 
   /* -------------------- style -------------------- */
@@ -28,7 +31,7 @@
   }
   main.contents {
     max-width: 100%;
-    padding: 0 35px;
+    padding: 0 var(--padding-type01);
   }
 
   /* content 공통 */
@@ -36,10 +39,13 @@
     margin-top: 140px;
   }
   .content .row .col2 {
-    width: calc(50% - 25px);
+    width: calc(50% - 35px);
   }
 
   /* home */
+  .content#home header.titAr {
+    padding-left: 20px;
+  }
   .content#home header.titAr .profile--img {
     width: calc(var(--logo-scale) * 0.9);
   }

@@ -15,12 +15,12 @@
   --font-Noto: Roboto, 'Noto Sans KR', sans-serif;
 
   /* font-size */
-  --font-Xlarge: calc(100% * 3.375); /* 54px*/
+  --font-Xlarge: calc(100% * 3.625); /* 54px*/
   --font-large: calc(100% * 1.875); /* 30px*/
   --font-medium: calc(100% * 1.125); /* 18px*/
   --font-regular: calc(100% * 0.938); /* 15px*/
   --font-small: calc(100% * 0.875); /* 14px*/
-  --font-micro: calc(100% * 0.75); /* 12px*/
+  --font-micro: calc(100% * 0.815); /* 13px*/
 
   /* font-weight */
   --weight-black: 900;
@@ -31,6 +31,9 @@
   --weight-light: 300;
 
   --animation-direction: 200ms;
+
+  /* padding */
+  --padding-type01: 30px;
 }
 
 /* -------------------- style -------------------- */
@@ -137,14 +140,14 @@ textarea.txtAr:focus {
 }
 .txt--list .txtBox .txtBox--tit .period {
   font-family: var(--font-Inter);
-  font-size: var(--font-micro);
+  font-size: 12px;
   font-weight: var(--weight-light);
 }
 .txt--list .txtBox .txtBox--txt {
-  font-size: var(--font-small);
+  font-size: var(--font-micro);
   font-weight: var(--weight-regular);
   color: var(--color-primary-80);
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 /* grid list */
@@ -219,7 +222,7 @@ main.contents {
   /* min-width: 320px;
   max-width: 1260px;
   margin: auto; */
-  padding: 0 30px;
+  padding: 0 var(--padding-type01);
   /* box-sizing: content-box; */
 }
 
@@ -249,11 +252,11 @@ header.header .header--logo {
   font-weight: var(--weight-bold);
   font-size: 31px;
 }
-header.header .navbar__manu {
+header.header .navbar--manu {
   display: inline-flex;
   gap: 0 50px;
 }
-header.header .navbar__manu .navbar__manu__item {
+header.header .navbar--manu .navbar--manu--item {
   font-family: var(--font-Inter);
   font-size: var(--font-regular);
   font-weight: var(--weight-medium);
@@ -262,8 +265,8 @@ header.header .navbar__manu .navbar__manu__item {
   border-bottom-width: 1px;
   border-color: transparent;
 }
-header.header .navbar__manu .navbar__manu__item:hover,
-header.header .navbar__manu .navbar__manu__item.active {
+header.header .navbar--manu .navbar--manu--item:hover,
+header.header .navbar--manu .navbar--manu--item.active {
   border-color: var(--color-primary);
   /* color: #ffffff;
   background-color: var(--color-primary); */
@@ -336,17 +339,17 @@ footer.footer .copyright {
 
 .content:not(#home) {
   min-width: 320px;
-  max-width: 1260px;
+  max-width: 1360px;
   margin: auto;
 }
 
 /* home */
 .content#home {
   min-height: calc(100vh - var(--header--height));
-  padding-left: 30px;
   position: relative;
 }
 .content#home header.titAr {
+  padding-left: 30px;
   position: absolute;
   left: 0;
   top: 50%;
@@ -377,6 +380,22 @@ footer.footer .copyright {
   font-size: var(--font-size);
   font-weight: var(--weight-regular);
   line-height: 1.7;
+}
+.content#home .contact--btn {
+  padding: 6px 22px 6px 27px;
+  font-size: 14px;
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  line-height: 1.15;
+  background: url('../images/contact_arr.png') no-repeat bottom 0 right 0 / 100% auto;
+  position: absolute;
+  bottom: 30px;
+  left: calc(var(--padding-type01) * -1);
+  opacity: 1;
+  transition: all 0.1s ease-in-out;
+}
+.content#home .contact--btn.fadeOut {
+  opacity: 0;
 }
 
 /* about */
@@ -605,11 +624,14 @@ footer.footer .copyright {
 .content#contact .contactInfo .info--list + .info--list {
   margin-top: 20px;
 }
-.content#contact .contactInfo .info--list .cont--tit01 {
+.content#contact .contactInfo .info--list .tit {
   margin-bottom: 7px;
+  font-family: var(--font-Inter);
+  font-size: 16px;
+  font-weight: var(--weight-bold);
 }
 .content#contact .contactInfo .info--list .txt {
-  margin-top: 4px;
+  margin-top: 8px;
   font-family: var(--font-Noto);
   font-size: var(--font-regular);
   font-weight: var(--weight-light);
@@ -633,17 +655,8 @@ footer.footer .copyright {
 .content#contact .contactInfo .link .link--btn.git {
   background-image: url('/images/contact_link_git.png');
 }
-
-.contact--me {
-  position: absolute;
+.top--btn {
+  position: fixed;
   bottom: 25px;
-  left: 0;
-}
-.contact--me .contact--btn {
-  padding: 6px 22px 6px 27px;
-  font-size: 14px;
-  font-weight: var(--weight-bold);
-  text-transform: uppercase;
-  line-height: 1.15;
-  background: url('../images/contact_arr.png') no-repeat bottom 0 right 0 / 100% auto;
+  right: 0;
 }

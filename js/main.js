@@ -1,12 +1,19 @@
 'use strict';
 
-// 헤더 스크롤 이벤트
+// 스크롤 이동 함수
+function scrollIntoView(location) {
+  window.scrollTo({
+    top: location,
+    behavior: 'smooth',
+  });
+}
+
+// 헤더 스크롤 효과
 const header = document.querySelector('.header');
 const headerHeight = header.offsetHeight;
 
 window.addEventListener('scroll', () => {
   let scrollY = this.scrollY;
-
   if (scrollY > headerHeight) {
     header.classList.add('scroll');
   } else {
@@ -14,28 +21,49 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// nav 메뉴 클릭 시 스크롤링, 메뉴 이벤트
+// nav 메뉴 클릭 : 해당 컨텐츠로 스크롤링, 메뉴 이벤트
 const sectionPadding = 180;
-const navBar = document.querySelector('.navbar__manu');
-const navItem = document.querySelectorAll('.navbar__manu .navbar__manu__item');
+const navBar = document.querySelector('.navbar--manu');
+const navItem = document.querySelectorAll('.navbar--manu .navbar--manu--item');
 
 navBar.addEventListener('click', (event) => {
   const target = event.target;
-  console.log(target.dataset.link);
+  //   console.log(target.dataset.link);
 
   if (target.tagName === 'LI') {
     const targetLink = target.dataset.link;
     const targetCont = document.querySelector(`#${targetLink}`);
     const targetContLocation = targetCont.offsetTop;
-    window.scrollTo({
-      top: targetContLocation - sectionPadding,
-      behavior: 'smooth',
-    });
 
+    scrollIntoView(targetContLocation - sectionPadding);
+
+    // 메뉴 클릭 시 클래스 'active'
     navItem.forEach(function (item) {
       item.classList.remove('active');
     });
     target.classList.add('active');
+  }
+});
+
+// go to top 버튼
+const topBtn = document.querySelector('.top--btn');
+topBtn.addEventListener('click', () => {
+  scrollIntoView(0);
+});
+
+// home "contact me" 버튼 클릭 : 해당 컨텐츠로 스크롤링
+const contactBtn = document.querySelector('.contact--btn');
+contactBtn.addEventListener('click', () => {
+  const location = document.querySelector('#contact').offsetTop;
+  scrollIntoView(location);
+});
+
+// 스크롤 시 home "contact me" 버튼 fade out
+window.addEventListener('scroll', () => {
+  if (scrollY > 100) {
+    contactBtn.classList.add('fadeOut');
+  } else {
+    contactBtn.classList.remove('fadeOut');
   }
 });
 
@@ -60,16 +88,4 @@ window.addEventListener('scroll', () => {
     let menu = document.querySelector(`[data-link="${maneName}"]`);
     menu.classList.add('active');
   }
-
-  //   if (scrollY + 80 >= homeScrollY && scrollY < aboutScrollY) {
-  //     menrScrollEvent('home');
-  //   } else if (scrollY >= aboutScrollY && scrollY < skillsScrollY) {
-  //     menrScrollEvent('about');
-  //   } else if (scrollY >= skillsScrollY && scrollY < myWorkScrollY) {
-  //     menrScrollEvent('skills');
-  //   } else if (scrollY >= myWorkScrollY && scrollY < contactScrollY) {
-  //     menrScrollEvent('work');
-  //   } else if (scrollY >= contactScrollY) {
-  //     menrScrollEvent('contact');
-  //   }
 });

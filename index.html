@@ -8,6 +8,8 @@
     <meta name="autor" content="Kim" />
     <title>Kim's Portfolio</title>
     <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- css -->
     <link rel="stylesheet" href="css/style.css" />
     <!-- script -->
@@ -21,12 +23,12 @@
         <button class="open--btn ic">메뉴 열기</button>
         <nav class="navbar">
           <button class="close--btn ic">닫기</button>
-          <ul class="navbar__manu">
-            <li class="navbar__manu__item active" data-link="home">Home</li>
-            <li class="navbar__manu__item" data-link="about">About</li>
-            <li class="navbar__manu__item" data-link="skills">Skills</li>
-            <li class="navbar__manu__item" data-link="work">My work</li>
-            <li class="navbar__manu__item" data-link="contact">contact</li>
+          <ul class="navbar--manu">
+            <li class="navbar--manu--item active" data-link="home">Home</li>
+            <li class="navbar--manu--item" data-link="about">About</li>
+            <li class="navbar--manu--item" data-link="skills">Skills</li>
+            <li class="navbar--manu--item" data-link="work">My work</li>
+            <li class="navbar--manu--item" data-link="contact">contact</li>
           </ul>
         </nav>
       </header>
@@ -39,6 +41,8 @@
             <h2 class="titAr--tit">Welcome to <br />my portfolio webpage.</h2>
             <p class="titAr--txt">스스로 문제를 찾고, 새롭게 정의하고, 도전적인 목표를 설정하여 주도적으로 일합니다.<br />누군가 걸어간 길이 아닌 새로운 길을 끊임없이 개척합니다.</p>
           </header>
+          <!--  -->
+          <button class="contact--btn">contact me</button>
         </section>
         <!-- section -->
         <section class="content" id="about">
@@ -398,15 +402,15 @@
                   <div class="contactInfo">
                     <ul class="info">
                       <li class="info--list">
-                        <label class="cont--tit01">Name</label>
+                        <label class="tit">Name</label>
                         <p class="txt">김경환</p>
                       </li>
                       <li class="info--list">
-                        <label class="cont--tit01">Email</label>
+                        <label class="tit">Email</label>
                         <p class="txt">kyoung_h9045@naver.com</p>
                       </li>
                       <li class="info--list">
-                        <label class="cont--tit01">Tel</label>
+                        <label class="tit">Tel</label>
                         <p class="txt">010-2530-9034</p>
                       </li>
                     </ul>
@@ -424,9 +428,7 @@
         <p class="copyright">2022 Kim kyoung-hwan - All rights reserved</p>
       </footer>
       <!--  -->
-      <div class="contact--me">
-        <button class="contact--btn">contact me</button>
-      </div>
+      <button class="top--btn">go to top</button>
     </div>
   </body>
 </html>

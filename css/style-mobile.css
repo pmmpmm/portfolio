@@ -7,7 +7,7 @@
     --font-medium: calc(86% * 1.125); /* 18px*/
     --font-regular: calc(90% * 0.938); /* 15px*/
     --font-small: calc(92% * 0.875); /* 14px*/
-    --font-micro: calc(95% * 0.75); /* 12px*/
+    --font-micro: calc(100% * 0.815); /* 13px*/
   }
 
   /* style variable */
