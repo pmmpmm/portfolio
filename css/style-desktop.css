@@ -53,7 +53,7 @@ input[type='text'].inp,
 input[type='email'].inp,
 textarea.txtAr {
   border: 1px solid var(--color-primary-40);
-  outline: var(--color-point1);
+  outline: var(--color-primary-40);
 }
 input.inp,
 input[type='text'].inp,
@@ -69,7 +69,7 @@ input:focus,
 input[type='text'].inp:focus,
 input[type='email'].inp:focus,
 textarea.txtAr:focus {
-  border-color: var(--color-point2);
+  border: 1px solid var(--color-primary);
 }
 
 /* btn */
@@ -156,6 +156,8 @@ textarea.txtAr:focus {
   grid-template-columns: 1fr 1fr 1fr;
   row-gap: 50px;
   column-gap: 24px;
+
+  transition: all 0.1s ease;
 }
 .grid {
   width: 100%;
@@ -234,18 +236,36 @@ header.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.8);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
   position: sticky;
   top: 0;
   left: 0;
-  z-index: 10001;
+  z-index: 1001;
   transition: all var(--animation-direction) ease-in-out;
 }
+header.header::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
 header.header.scroll {
-  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.1);
   padding: 0 32px;
+}
+header.header.scroll::after {
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.1);
+}
+header.header .header--logo,
+header.header .navbar--manu,
+header.header .open--btn {
+  position: relative;
+  z-index: 1;
 }
 header.header .header--logo {
   font-family: var(--font-Inter);
@@ -256,7 +276,7 @@ header.header .navbar--manu {
   display: inline-flex;
   gap: 0 50px;
 }
-header.header .navbar--manu .navbar--manu--item {
+header.header .navbar--manu .navbar--manu--item .tx {
   font-family: var(--font-Inter);
   font-size: var(--font-regular);
   font-weight: var(--weight-medium);
@@ -265,8 +285,8 @@ header.header .navbar--manu .navbar--manu--item {
   border-bottom-width: 1px;
   border-color: transparent;
 }
-header.header .navbar--manu .navbar--manu--item:hover,
-header.header .navbar--manu .navbar--manu--item.active {
+header.header .navbar--manu .navbar--manu--item .tx:hover,
+header.header .navbar--manu .navbar--manu--item .tx.active {
   border-color: var(--color-primary);
   /* color: #ffffff;
   background-color: var(--color-primary); */
@@ -353,8 +373,7 @@ footer.footer .copyright {
   position: absolute;
   left: 0;
   top: 50%;
-  transform: translateY(-70.5%);
-  /* transform: translateY(-76.5%); */
+  transform: translateY(-71.5%);
 }
 .content#home header.titAr .profile--img {
   --logo-scale: 85px;
@@ -367,7 +386,7 @@ footer.footer .copyright {
 }
 .content#home header.titAr .titAr--tit {
   --font-size: 82px;
-  margin-top: 60px;
+  margin-top: 55px;
   font-size: var(--font-size);
   font-family: var(--font-Inter);
   font-weight: var(--weight-exblod);
@@ -392,7 +411,7 @@ footer.footer .copyright {
   bottom: 30px;
   left: calc(var(--padding-type01) * -1);
   opacity: 1;
-  transition: all 0.1s ease-in-out;
+  transition: all 0.18s ease;
 }
 .content#home .contact--btn.fadeOut {
   opacity: 0;
@@ -655,8 +674,54 @@ footer.footer .copyright {
 .content#contact .contactInfo .link .link--btn.git {
   background-image: url('/images/contact_link_git.png');
 }
+
+.work--categories .category {
+  padding: 0 23px 0 26px;
+}
+.work--categories .category .count {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 4px 2px;
+  font-size: 10.5px;
+  font-weight: var(--weight-regular);
+  color: #ffffff;
+  line-height: 1;
+  background-color: var(--color-primary-40);
+  border-radius: 50%;
+}
+.work--categories .category.active .count {
+  font-size: 10px;
+  color: var(--color-primary);
+  font-weight: var(--weight-bold);
+  background-color: #ffffff;
+}
+
+.work--projects {
+  opacity: 1;
+  transition: all 0.3s ease-out;
+}
+.work--projects.anim--out {
+  opacity: 0.2;
+  transform: scale(0.96) translateY(30px);
+}
+.project.invisible {
+  display: none;
+}
+
 .top--btn {
+  width: 50px;
+  height: 50px;
+  background: #ffffff url('../images/top_btn_ic.png') no-repeat center / 13px auto;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   position: fixed;
+  right: 25px;
   bottom: 25px;
-  right: 0;
+  opacity: 0;
+  transition: all 0.1s ease;
+  pointer-events: none;
+}
+.top--btn.fadeIn {
+  opacity: 1;
+  pointer-events: auto;
 }

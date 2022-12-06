@@ -20,15 +20,27 @@
       <!-- header -->
       <header class="header">
         <h1 class="header--logo">LOGO</h1>
-        <button class="open--btn ic">메뉴 열기</button>
+        <button class="open--btn ic">
+          메뉴 열기
+          <svg fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- <path d="M0 0H22V2H0V0Z" fill="#2B2825" />
+            <path d="M4 7H22V9H4V7Z" fill="#2B2825" />
+            <path d="M8 14H22V16H8V14Z" fill="#2B2825" /> -->
+            <g stroke="none" stroke-width="1" fill-rule="evenodd">
+              <rect x="0" y="3"></rect>
+              <rect x="4" y="10"></rect>
+              <rect x="8" y="17"></rect>
+            </g>
+          </svg>
+        </button>
         <nav class="navbar">
-          <button class="close--btn ic">닫기</button>
+          <!-- <button class="close--btn ic">닫기</button> -->
           <ul class="navbar--manu">
-            <li class="navbar--manu--item active" data-link="home">Home</li>
-            <li class="navbar--manu--item" data-link="about">About</li>
-            <li class="navbar--manu--item" data-link="skills">Skills</li>
-            <li class="navbar--manu--item" data-link="work">My work</li>
-            <li class="navbar--manu--item" data-link="contact">contact</li>
+            <li class="navbar--manu--item"><span data-link="home" class="tx active">Home</span></li>
+            <li class="navbar--manu--item"><span data-link="about" class="tx">About</span></li>
+            <li class="navbar--manu--item"><span data-link="skills" class="tx">Skills</span></li>
+            <li class="navbar--manu--item"><span data-link="work" class="tx">My work</span></li>
+            <li class="navbar--manu--item"><span data-link="contact" class="tx">contact</span></li>
           </ul>
         </nav>
       </header>
@@ -261,26 +273,26 @@
               꽃이 발휘하기 우리 피가 광야에서 부패뿐이다. 곧 그러므로 이상 인간의 봄바람이다. 보는 만물은<br />석가는 그들을 그들은 실현에 칼이다. 위하여, 그들은 품었기 가는 모래뿐일 우리
             </p>
           </header>
-          <ul class="tabBtn">
+          <ul class="tabBtn work--categories">
             <li class="tab">
-              <button class="tab--btn active">All</button>
+              <button class="tab--btn category active" data-filter="all">All<span class="count">5</span></button>
             </li>
             <li class="tab">
-              <button class="tab--btn">Publishing</button>
+              <button class="tab--btn category" data-filter="publishing">Publishing<span class="count">3</span></button>
             </li>
             <li class="tab">
-              <button class="tab--btn">Design</button>
+              <button class="tab--btn category" data-filter="design">Design<span class="count">2</span></button>
             </li>
           </ul>
           <div class="contWp">
             <div class="contWp--conts">
-              <ul class="gridAr">
-                <li class="grid">
+              <ul class="gridAr work--projects">
+                <li class="grid project" data-type="publishing">
                   <div class="grid--imgAr">
                     <img src="" onerror="this.src='images/default_img01.jpg'" alt="프로젝트 섬네일 이미지" class="img" />
                   </div>
                   <div class="grid--txtAr">
-                    <p class="cont--tit02">Like it</p>
+                    <p class="cont--tit02">publishing Like it</p>
                     <div class="grid--txtAr-info">
                       <div class="weight publ">
                         <span class="tit">Publishing</span>
@@ -293,12 +305,12 @@
                     </div>
                   </div>
                 </li>
-                <li class="grid">
+                <li class="grid project" data-type="publishing">
                   <div class="grid--imgAr">
                     <img src="" onerror="this.src='images/default_img01.jpg'" alt="프로젝트 섬네일 이미지" class="img" />
                   </div>
                   <div class="grid--txtAr">
-                    <p class="cont--tit02">Like it</p>
+                    <p class="cont--tit02">publishing Like it</p>
                     <div class="grid--txtAr-info">
                       <div class="weight publ">
                         <span class="tit">Publishing</span>
@@ -311,12 +323,12 @@
                     </div>
                   </div>
                 </li>
-                <li class="grid">
+                <li class="grid project" data-type="design">
                   <div class="grid--imgAr">
                     <img src="" onerror="this.src='images/default_img01.jpg'" alt="프로젝트 섬네일 이미지" class="img" />
                   </div>
                   <div class="grid--txtAr">
-                    <p class="cont--tit02">Like it</p>
+                    <p class="cont--tit02">design Like it</p>
                     <div class="grid--txtAr-info">
                       <div class="weight publ">
                         <span class="tit">Publishing</span>
@@ -329,12 +341,12 @@
                     </div>
                   </div>
                 </li>
-                <li class="grid">
+                <li class="grid project" data-type="design">
                   <div class="grid--imgAr">
                     <img src="" onerror="this.src='images/default_img01.jpg'" alt="프로젝트 섬네일 이미지" class="img" />
                   </div>
                   <div class="grid--txtAr">
-                    <p class="cont--tit02">Like it</p>
+                    <p class="cont--tit02">design Like it</p>
                     <div class="grid--txtAr-info">
                       <div class="weight publ">
                         <span class="tit">Publishing</span>
@@ -347,12 +359,12 @@
                     </div>
                   </div>
                 </li>
-                <li class="grid">
+                <li class="grid project" data-type="publishing">
                   <div class="grid--imgAr">
                     <img src="" onerror="this.src='images/default_img01.jpg'" alt="프로젝트 섬네일 이미지" class="img" />
                   </div>
                   <div class="grid--txtAr">
-                    <p class="cont--tit02">Like it</p>
+                    <p class="cont--tit02">publishing Like it</p>
                     <div class="grid--txtAr-info">
                       <div class="weight publ">
                         <span class="tit">Publishing</span>
@@ -428,7 +440,7 @@
         <p class="copyright">2022 Kim kyoung-hwan - All rights reserved</p>
       </footer>
       <!--  -->
-      <button class="top--btn">go to top</button>
+      <button class="top--btn ic">go to top</button>
     </div>
   </body>
 </html>
