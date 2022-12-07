@@ -7,7 +7,7 @@ function scrollIntoView(location) {
     behavior: 'smooth',
   });
 }
-// 스트롤 다운 시: 효과
+// 스트롤 다운 시: 효과 함수
 function scrollDownEffect(obj, scrollPosition, effect) {
   if (window.scrollY > scrollPosition) {
     obj.classList.add(effect);
@@ -15,6 +15,8 @@ function scrollDownEffect(obj, scrollPosition, effect) {
     obj.classList.remove(effect);
   }
 }
+
+const mobileDevice = 767;
 
 // 헤더: scroll style
 const header = document.querySelector('.header');
@@ -39,11 +41,24 @@ navBar.addEventListener('click', (event) => {
 
     scrollIntoView(targetContLocation - sectionPadding);
 
-    // 메뉴 클릭 시 : 클래스 'active'
+    // 모바일 디바이스 : 메뉴 클릭 시 메뉴 가리기
+    header.classList.remove('open');
+
+    // 메뉴 클릭 시 : 버튼 클래스 'active'
     navItem.forEach(function (item) {
       item.classList.remove('active');
     });
     target.classList.add('active');
+  }
+});
+// 모바일 디바이스 : 모바일 메뉴 버튼 클릭 이벤트
+const navBtn = document.querySelector('.open--btn');
+navBtn.addEventListener('click', () => {
+  header.classList.toggle('open');
+});
+window.addEventListener('resize', () => {
+  if (window.innerWidth > mobileDevice) {
+    header.classList.remove('open');
   }
 });
 
@@ -70,30 +85,22 @@ window.addEventListener('scroll', () => {
   scrollDownEffect(contactBtn, 100, 'fadeOut');
 });
 
-// 모바일 메뉴 버튼 클릭 시 :
-const navBtn = document.querySelector('.open--btn');
-navBtn.addEventListener('click', () => {
-  header.classList.toggle('open');
-});
-function navbarShowHide() {
-  header.classList.remove('open');
-}
-window.addEventListener('resize', () => {
-  if (window.innerWidth > 767) {
-    navbarShowHide();
-  }
-});
-
-// work
-const workCategoriesBtn = document.querySelector('.work--categories');
+// work project 리스트 필터
+const workCategories = document.querySelector('.work--categories');
 const projectsContainer = document.querySelector('.work--projects');
 const projects = document.querySelectorAll('.work--projects .project');
 
-workCategoriesBtn.addEventListener('click', (event) => {
+workCategories.addEventListener('click', (event) => {
   const filter = event.target.dataset.filter || event.target.parentNode.dataset.filter;
   if (filter == null) {
     return;
   }
+
+  // work category 클릭 시: active
+  const activeBtn = document.querySelector('.category.active');
+  const target = event.target.nodeName === 'BUTTON' ? event.target : event.target.parentNode;
+  activeBtn.classList.remove('active');
+  target.classList.add('active');
 
   projectsContainer.classList.add('anim--out');
 
@@ -105,10 +112,16 @@ workCategoriesBtn.addEventListener('click', (event) => {
         item.classList.add('invisible');
       }
     });
-
     projectsContainer.classList.remove('anim--out');
   }, 300);
 });
+// work category count
+const categoryAllCount = document.querySelector('.category[data-filter="all"] .count');
+const categoryPublCount = document.querySelector('.category[data-filter="publishing"] .count');
+const categoryDesignCount = document.querySelector('.category[data-filter="design"] .count');
+categoryAllCount.innerHTML = projects.length;
+categoryPublCount.innerHTML = document.querySelectorAll('.project[data-type="publishing"]').length;
+categoryDesignCount.innerHTML = document.querySelectorAll('.project[data-type="design"]').length;
 
 window.addEventListener('scroll', () => {
   // 화면 스크롤 시 해당 섹션 영역 확인
