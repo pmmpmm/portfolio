@@ -95,10 +95,12 @@ textarea.txtAr:focus {
   font-weight: var(--weight-medium);
   border: 1px solid var(--color-primary);
 }
+.tab--btn:hover,
 .tab--btn.active {
   color: #ffffff;
   background-color: var(--color-primary);
   font-weight: var(--weight-bold);
+  letter-spacing: -0.08px;
 }
 
 /* list txt */
@@ -107,7 +109,7 @@ textarea.txtAr:focus {
   padding: 0 10px;
 }
 .txt--list + .txt--list {
-  margin-top: 16px;
+  margin-top: 18px;
 }
 .txt--list .txt--list--thumb {
   width: 64px;
@@ -284,6 +286,7 @@ header.header .navbar--manu .navbar--manu--item .tx {
   border-style: solid;
   border-bottom-width: 1px;
   border-color: transparent;
+  transition: all 200ms ease;
 }
 header.header .navbar--manu .navbar--manu--item .tx:hover,
 header.header .navbar--manu .navbar--manu--item .tx.active {
@@ -400,6 +403,22 @@ footer.footer .copyright {
   font-weight: var(--weight-regular);
   line-height: 1.7;
 }
+.content#home .contact {
+  padding: 15px 0;
+  position: absolute;
+  bottom: 15px;
+  left: calc(var(--padding-type01) * -1);
+  opacity: 1;
+  transition: all 0.18s ease;
+  pointer-events: auto;
+}
+.content#home .contact:hover {
+  transform: translateY(-10px);
+}
+.content#home .contact.fadeOut {
+  opacity: 0;
+  pointer-events: none;
+}
 .content#home .contact--btn {
   padding: 6px 22px 6px 27px;
   font-size: 14px;
@@ -407,14 +426,6 @@ footer.footer .copyright {
   text-transform: uppercase;
   line-height: 1.15;
   background: url('../images/contact_arr.png') no-repeat bottom 0 right 0 / 100% auto;
-  position: absolute;
-  bottom: 30px;
-  left: calc(var(--padding-type01) * -1);
-  opacity: 1;
-  transition: all 0.18s ease;
-}
-.content#home .contact--btn.fadeOut {
-  opacity: 0;
 }
 
 /* about */
@@ -690,6 +701,7 @@ footer.footer .copyright {
   background-color: var(--color-primary-40);
   border-radius: 50%;
 }
+.work--categories .category:hover .count,
 .work--categories .category.active .count {
   color: var(--color-primary);
   font-weight: var(--weight-bold);

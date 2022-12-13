@@ -1,6 +1,6 @@
 'use strict';
 
-// 클릭 시 : 스크롤 이동 함수
+// 함수 > 클릭 시 : 원하는 위치로 스크롤 이동
 function scrollIntoView(location) {
   window.scrollTo({
     top: location,
@@ -18,6 +18,19 @@ function scrollDownEffect(obj, scrollPosition, effect) {
 
 const mobileDevice = 767;
 
+let sectionPaddingTop;
+function responsivePadding() {
+  if (window.innerWidth > mobileDevice) {
+    sectionPaddingTop = 180;
+  } else {
+    sectionPaddingTop = 100;
+  }
+}
+responsivePadding();
+window.addEventListener('resize', () => {
+  responsivePadding();
+});
+
 // 헤더: scroll style
 const header = document.querySelector('.header');
 const headerHeight = header.offsetHeight;
@@ -28,7 +41,6 @@ window.addEventListener('scroll', () => {
 
 // nav 메뉴 클릭 시 : 해당 컨텐츠로 스크롤
 // nav 메뉴 클릭 시 : 버튼 style
-const sectionPadding = 180;
 const navBar = document.querySelector('.navbar--manu');
 const navItem = document.querySelectorAll('.navbar--manu .navbar--manu--item .tx');
 
@@ -39,7 +51,7 @@ navBar.addEventListener('click', (event) => {
     const targetCont = document.querySelector(`#${targetLink}`);
     const targetContLocation = targetCont.offsetTop;
 
-    scrollIntoView(targetContLocation - sectionPadding);
+    scrollIntoView(targetContLocation - sectionPaddingTop);
 
     // 모바일 디바이스 : 메뉴 클릭 시 메뉴 가리기
     header.classList.remove('open');
@@ -74,7 +86,7 @@ window.addEventListener('scroll', () => {
 });
 
 // home "contact me" 버튼 클릭 시 : 해당 컨텐츠로 스크롤링
-const contactBtn = document.querySelector('.contact--btn');
+const contactBtn = document.querySelector('.contact');
 contactBtn.addEventListener('click', () => {
   const location = document.querySelector('#contact').offsetTop;
   scrollIntoView(location);
@@ -115,7 +127,7 @@ workCategories.addEventListener('click', (event) => {
     projectsContainer.classList.remove('anim--out');
   }, 300);
 });
-// work category count
+// work category count 읽고 작성하기
 const categoryAllCount = document.querySelector('.category[data-filter="all"] .count');
 const categoryPublCount = document.querySelector('.category[data-filter="publishing"] .count');
 const categoryDesignCount = document.querySelector('.category[data-filter="design"] .count');
@@ -123,22 +135,56 @@ categoryAllCount.innerHTML = projects.length;
 categoryPublCount.innerHTML = document.querySelectorAll('.project[data-type="publishing"]').length;
 categoryDesignCount.innerHTML = document.querySelectorAll('.project[data-type="design"]').length;
 
-window.addEventListener('scroll', () => {
-  // 화면 스크롤 시 해당 섹션 영역 확인
-  // 화면 스크롤 위치 가져오기
-  // 각 섹션 위치 확인
-  //   let scrollY = this.scrollY;
-  //   const homeScrollY = scrollY + document.querySelector('#home').getBoundingClientRect().top - sectionPadding;
-  //   const aboutScrollY = scrollY + document.querySelector('#about').getBoundingClientRect().top - sectionPadding;
-  //   const skillsScrollY = scrollY + document.querySelector('#skills').getBoundingClientRect().top - sectionPadding;
-  //   const myWorkScrollY = scrollY + document.querySelector('#work').getBoundingClientRect().top - sectionPadding;
-  //   const contactScrollY = scrollY + document.querySelector('#contact').getBoundingClientRect().top - sectionPadding;
-  //   //   let menu;
-  //   function menrScrollEvent(maneName) {
-  //     navItem.forEach(function (item) {
-  //       item.classList.remove('active');
-  //     });
-  //     let menu = document.querySelector(`[data-link="${maneName}"]`);
-  //     menu.classList.add('active');
+// 컨텐츠 위치와 메뉴 active 매칭
+const contents = document.querySelectorAll('.content');
+const contentIds = [];
+contents.forEach((item) => {
+  contentIds.push(`${item.id}`);
+});
+
+const sections = contentIds.map((id) => document.querySelector(`#${id}`));
+const navItems = contentIds.map((id) => document.querySelector(`[data-link="${id}"]`));
+
+let selectedNavItem = navItems[0];
+function selectNavItem(selected) {
+  selectedNavItem.classList.remove('active');
+  selectedNavItem = selected;
+  selectedNavItem.classList.add('active');
+}
+
+let selectedNavIndex = 0;
+const callback = (entries, observer) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting && entry.intersectionRatio > 0) {
+      const index = contentIds.indexOf(entry.target.id);
+      if (entry.boundingClientRect.y < 0) {
+        selectedNavIndex = index + 1;
+      } else {
+        selectedNavIndex = index - 1;
+      }
+      selectNavItem(navItems[selectedNavIndex]);
+    }
+  });
+  //   console.log(entries);
+  //   console.log('location', window.scrollY);
+  //   if (window.scrollY === 0) {
+  //     console.log('aa');
   //   }
+};
+const option = {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.4,
+};
+const contentObserver = new IntersectionObserver(callback, option);
+sections.forEach((content) => {
+  contentObserver.observe(content);
+});
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY === 0) {
+    console.log('aa');
+  } else if (Math.round(window.scrollY + window.innerHeight) >= document.body.clientHeight) {
+    // selectNavItem(navItems.length - 1);
+  }
 });
