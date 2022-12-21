@@ -601,22 +601,22 @@ footer.footer .copyright {
   font-weight: var(--weight-light);
 }
 .content#skills .tools-list .tool.vscode .tool--icon {
-  background-image: url('/images/tool_icon_vscode.png');
+  background-image: url('../images/tool_icon_vscode.png');
 }
 .content#skills .tools-list .tool.figma .tool--icon {
-  background-image: url('/images/tool_icon_figma.png');
+  background-image: url('../images/tool_icon_figma.png');
 }
 .content#skills .tools-list .tool.xd .tool--icon {
-  background-image: url('/images/tool_icon_xd.png');
+  background-image: url('../images/tool_icon_xd.png');
 }
 .content#skills .tools-list .tool.photoshop .tool--icon {
-  background-image: url('/images/tool_icon_photoshop.png');
+  background-image: url('../images/tool_icon_photoshop.png');
 }
 .content#skills .tools-list .tool.illustrator .tool--icon {
-  background-image: url('/images/tool_icon_illustrator.png');
+  background-image: url('../images/tool_icon_illustrator.png');
 }
 .content#skills .tools-list .tool.git .tool--icon {
-  background-image: url('/images/tool_icon_git.png');
+  background-image: url('../images/tool_icon_git.png');
 }
 
 /* contact */
@@ -683,7 +683,7 @@ footer.footer .copyright {
   background-size: 100% auto;
 }
 .content#contact .contactInfo .link .link--btn.git {
-  background-image: url('/images/contact_link_git.png');
+  background-image: url('../images/contact_link_git.png');
 }
 
 .work--categories .category {
