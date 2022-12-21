@@ -165,11 +165,6 @@ const callback = (entries, observer) => {
       selectNavItem(navItems[selectedNavIndex]);
     }
   });
-  //   console.log(entries);
-  //   console.log('location', window.scrollY);
-  //   if (window.scrollY === 0) {
-  //     console.log('aa');
-  //   }
 };
 const option = {
   root: null,
@@ -183,8 +178,9 @@ sections.forEach((content) => {
 
 window.addEventListener('scroll', () => {
   if (window.scrollY === 0) {
-    console.log('aa');
+    selectedNavIndex = 0;
   } else if (Math.round(window.scrollY + window.innerHeight) >= document.body.clientHeight) {
-    // selectNavItem(navItems.length - 1);
+    selectedNavIndex = navItems.length - 1;
   }
+  selectNavItem(navItems[selectedNavIndex]);
 });
